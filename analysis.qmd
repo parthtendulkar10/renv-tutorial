@@ -5,3 +5,32 @@ editor: visual
 ---
 
 
+```{r}
+library(HistData)
+data("Breslau")
+library(tidyverse)
+library(knitr)
+```
+```{r}
+
+filtered_data <- subset(Breslau, age >= 5)
+
+kable(filtered_data,caption = "Filtered Breslau Data (Age ≥ 5)")
+
+```
+
+```{r}
+#| label: fig-death
+#| fig-cap: "jjj length vs flipper length"
+
+plot(filtered_data$age, filtered_data$total,
+     type = "b",              # lines and points
+     pch = 19,                # solid dots
+     col = "orange",            # line color
+     main = "Age at Death vs Total Number of Deaths",
+     xlab = "Age at Death",
+     ylab = "Total Deaths")
+grid()
+```
+
+check @fig-death
